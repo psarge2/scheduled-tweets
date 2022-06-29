@@ -29,3 +29,19 @@ get "/" can be replaced by root: to ""
         get "about-us", to: "about#index" as: :about changed from get "about", to "about#index"
         root to: "main#index"
     end
+
+    can change the url but keep the name the same
+
+    link to helper see above
+    url helper root_path, or about_path
+
+## Flash
+    Inherited from the application controller
+    
+    flash[:notice] = "Logged in successfully"
+
+    most common, alert or notice
+
+    wait to see if they are rendered on next request
+    
+    flash.now only displays on the current request
