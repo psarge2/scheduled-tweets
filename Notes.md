@@ -100,4 +100,48 @@ get "/" can be replaced by root: to ""
 
     \A[A-Z0-9+_.-]+@[A-Z0-9.-]+\Z
 
-    
+
+## Vriables
+
+    instance variable - ad @ to a variable ex @user
+    can be visiable in our views
+
+    local variable onl availble inside the method (not able to use anywhere else)
+
+
+## Form with
+
+    ex. <%= form_with model: @user do |form| %>
+
+    for with looks for a url based upon or model 
+     - user would look for a url helper called user (added to routes)
+     - ex.  post "users", to: "registrations#creasate"
+     
+     ADD URL 
+     <%= form_with model: @user, url: sign_up_path do |form| %>
+
+     post "sign_up", to: "registrations#creasate"
+
+     <%= form_with model: @user, url: sign_up_path do |form| %>
+         <%= form.text_field :email %>
+        <%= form.text_field :password %>
+        <%= form.text_field :password_confirmation%>
+    <% end %>
+
+    change passworfd from text_field to password_field to hide password
+
+    form.submit (button)
+    submit talks to form 
+    form knows we have a model called user and the model is brand new
+    if its brand new and not inthe database we want to say 'create {modelname}'
+
+    to overide pass in a string as an argument
+
+    <%= form.submit "Get Started" %>
+
+## Private
+
+    allows o
+    params user.permit
+    params.require(:user).permit(:email, :password, :password_confirmation)
+    there are the only thing wer allow you to set
