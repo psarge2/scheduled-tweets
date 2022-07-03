@@ -145,3 +145,22 @@ get "/" can be replaced by root: to ""
     params user.permit
     params.require(:user).permit(:email, :password, :password_confirmation)
     there are the only thing wer allow you to set
+
+    if you create a private param
+
+    private def user_params
+        params.require().permit(:email, :password)
+
+    pass the private method back into the create
+
+        def create
+            @user = User.new(user_params)
+        end
+
+## COokies
+    sesioned cookies 
+
+    encrypted store - stored cookie in your browser 
+
+    assigned cookies
+
