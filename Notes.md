@@ -158,9 +158,17 @@ get "/" can be replaced by root: to ""
         end
 
 ## COokies
-    sesioned cookies 
+
+    A header that is sent back back and forth always every request in you browser
+
+    Sessioned cookies 
 
     encrypted store - stored cookie in your browser 
 
-    assigned cookies
+    Assigned cookies
 
+    find vs find_by
+
+    find_by will not throw an error if user cannot be found
+
+    
