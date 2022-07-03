@@ -171,4 +171,10 @@ get "/" can be replaced by root: to ""
 
     find_by will not throw an error if user cannot be found
 
-    
+## Action Control
+before_action
+
+something that is done before all other actions in any controller (if set on appcontroller) 
+ex. before_action :set_current_user
+
+change instance variable (@user) to current.user in views
