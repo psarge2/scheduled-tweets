@@ -178,3 +178,57 @@ something that is done before all other actions in any controller (if set on app
 ex. before_action :set_current_user
 
 change instance variable (@user) to current.user in views
+
+
+## Action mailer
+
+rails g to create a mailer 
+
+rails g mailer {Mailer Name} {email for mailer}
+give mailer name emails to send
+
+ex. gails g mailer Password reset
+
+ex. placed in controller
+
+def create
+        @user = User.find_by(email: params[:email])
+
+        if @user.present?
+            #send email
+            PasswordMailer.with(user: @user).reset.deliver_later
+        
+        redirect_to root_path, notice: "if an accoint with that email was found, we have sent a link to reset your password."    
+end
+
+PasswordMailer - what email we are sending
+
+(user:@user) - params for who is getting the email
+
+reset - what email we are sending
+
+deliver_later - background job
+
+user will see a reponse quickly but the email will come later
+
+### Token for User ID
+
+from rails console
+
+global id
+user.to_global.id.to_s
+
+signed id
+user.signed_id
+verified by server to know its not messed with
+
+user.signed_id(expires_in: 15.minutes)
+can add a purpose. 
+user.signed_id(expires_in: 15.minutes, purpose:"password_reset")
+then the server will know "we only take user signed id's with the purpose of resetting the password
+
+have to use url in mailers
+
+
+
+
