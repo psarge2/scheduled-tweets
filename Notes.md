@@ -230,5 +230,15 @@ then the server will know "we only take user signed id's with the purpose of res
 have to use url in mailers
 
 
+## Note
 
+need a model inthe form from this to work:
+
+<% if form.object.errors.any? %>
+        <div class="alert alert-danger">
+            <% form.object.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+        </div>
+    <% end %>
 
